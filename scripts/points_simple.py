@@ -26,3 +26,13 @@ for d in dd:
     with open('output.txt', 'a') as fout:
         fout.write(json.dumps(points[::-1]).replace('"', ''))
         fout.write(',\n')
+
+while True:
+    x, y = map(int, input().split())
+    # [0, 2000] -> [-180, 180]
+    x = ((x / 2000) * 360) - 180
+    # [0, 1000] -> [90, -90]
+    y = ((y / 1000) * -180) + 90
+    x = f'{x:.2f}'
+    y = f'{y:.2f}'
+    print(f'[{x}, {y}]')
